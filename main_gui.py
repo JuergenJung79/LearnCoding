@@ -84,6 +84,22 @@ init_csv()
 root = tk.Tk()
 root.title("Gewichts- und Kacka-Tracker")
 
+# Menu
+menubar = tk.Menu(root)
+
+# Datei-Menu
+file_menu = tk.Menu(menubar, tearoff=0)
+file_menu.add_command(label="Visualisierung", command=daten_visualisieren)
+file_menu.add_command(label="Beenden", command=root.quit)
+
+# Hilfe-Menu
+hilfe_menu = tk.Menu(menubar, tearoff=0)
+
+menubar.add_cascade(label="Datei", menu=file_menu)
+menubar.add_cascade(label="Hilfe", menu=hilfe_menu)
+
+root.config(menu=menubar)
+
 # Widgets
 frame = ttk.Frame(root, padding=20)
 frame.grid()
